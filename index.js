@@ -7,6 +7,15 @@ module.exports = function (timestr, a, b, cb) {
     var time = parse(timestr);
     var src, dst, pending = 2;
     
+    if (a && a === b) {
+        return placename(a, function (err, rows) {
+            if (err) return cb(err);
+            if (rows.length === 0) return cb(null, []);
+            src = rows;
+            dst = rows;
+            done();
+        });
+    }
     if (a) {
         placename(a, function (err, rows) {
             if (err) return cb(err);

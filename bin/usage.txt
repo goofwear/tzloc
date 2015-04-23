@@ -9,6 +9,13 @@ tzloc -t TIME -s SRC -d DST
   tzloc '5pm aug 20' 'beijing' 'seattle'
   tzloc 11am in wellington to nyc time
 
+tzloc now in PLACE
+tzloc now to PLACE (time)
+
+  Print the time in PLACE.
+
+    -v --verbose  Show found source and destination.
+
 tzloc tz PLACE
 
   Print the IANA time zone for PLACE.

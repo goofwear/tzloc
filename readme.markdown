@@ -15,6 +15,8 @@ $ tzloc tz lensk
 Asia/Yakutsk
 $ tzloc offset lensk 
 540
+$ tzloc now in miami
+2015-04-22 22:02:24
 ```
 
 # api example
@@ -42,6 +44,13 @@ tzloc -t TIME -s SRC -d DST
   
   tzloc '5pm aug 20' 'beijing' 'seattle'
   tzloc 11am in wellington to nyc time
+
+tzloc now in PLACE
+tzloc now to PLACE (time)
+
+  Print the time in PLACE.
+
+    -v --verbose  Show found source and destination.
 
 tzloc tz PLACE
 

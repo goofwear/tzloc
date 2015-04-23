@@ -73,6 +73,11 @@ var timestr = argv.time || argv._.shift();
 var src = argv.src || argv._.shift();
 var dst = argv.dst || argv._.shift();
 
+if (!dst && /^now\b/.test(timestr)) {
+    dst = src;
+    src = null;
+}
+
 tztime(timestr, src, dst, function (err, times) {
     if (err) return error(err);
     

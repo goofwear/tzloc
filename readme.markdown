@@ -45,6 +45,7 @@ tzloc -t TIME -s SRC -d DST
   tzloc '5pm aug 20' 'beijing' 'seattle'
   tzloc 11am in wellington to nyc time
 
+tzloc in PLACE
 tzloc now in PLACE
 tzloc now to PLACE (time)
 

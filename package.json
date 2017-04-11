@@ -1,6 +1,6 @@
 {
   "name": "tzloc",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "find the time in a place",
   "main": "index.js",
   "bin": {

@@ -70,7 +70,7 @@ if (argv._[0] === 'convert') argv._.shift();
 if (argv._[0] === 'in' && argv._.indexOf('to') < 0) {
     argv._.unshift('now');
 }
-if (argv._.indexOf('in') >= 0 || argv._.indexOf('to') >= 0) {
+if (/\b(in|to)\b/i.test(argv._.join(' '))) {
     argv._ = argv._.join(' ')
         .split(/\b(?:in|to|time)\b/i)
         .map(function (s) { return s.trim() })

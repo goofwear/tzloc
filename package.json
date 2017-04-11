@@ -7,7 +7,7 @@
     "tzloc": "bin/cmd.js"
   },
   "dependencies": {
-    "coordinate-tz": "^0.1.2",
+    "geo-tz": "^3.3.0",
     "has": "^1.0.0",
     "minimist": "^1.1.1",
     "parse-messy-time": "^2.0.2",

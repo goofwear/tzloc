@@ -2,7 +2,7 @@
 
 var tztime = require('../');
 var strftime = require('strftime');
-var ctz = require('coordinate-tz');
+var ctz = require('../lib/tz.js');
 var placename = require('placename');
 var offsets = require('timezone-name-offsets');
 var has = require('has');
@@ -15,7 +15,7 @@ var argv = minimist(process.argv.slice(2), {
         s: 'src', d: 'dst', t: 'time',
         a: 'all', v: 'verbose', h: 'help'
     },
-    boolean: [ 'all' ]
+    boolean: [ 'all', 'verbose' ]
 });
 if (argv._.length === 0 || argv.help || argv._[0] === 'help') {
     return fs.createReadStream(path.join(__dirname, 'usage.txt'))

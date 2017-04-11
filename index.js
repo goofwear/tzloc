@@ -1,6 +1,6 @@
 var placename = require('placename');
 var parse = require('parse-messy-time');
-var ctz = require('coordinate-tz');
+var ctz = require('./lib/tz.js');
 var offsets = require('timezone-name-offsets');
 
 module.exports = function (timestr, a, b, cb) {

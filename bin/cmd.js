@@ -15,7 +15,7 @@ var argv = minimist(process.argv.slice(2), {
         s: 'src', d: 'dst', t: 'time',
         a: 'all', v: 'verbose', h: 'help'
     },
-    boolean: [ 'all', 'verbose' ]
+    boolean: [ 'all', 'verbose', 'utc' ]
 });
 if (argv._.length === 0 || argv.help || argv._[0] === 'help') {
     return fs.createReadStream(path.join(__dirname, 'usage.txt'))
@@ -42,17 +42,24 @@ else if (argv._[0] === 'offset') {
         if (argv.n !== undefined) rows = rows.slice(0, argv.n);
         else if (!argv.all) rows = [rows[0]];
 
-        rows.forEach(function (row) {
+        rows.filter(Boolean).forEach(function (row) {
             var name = ctz.calculate(row.lat, row.lon).timezone;
+            var offset = offsets[name];
+            if (argv.utc) {
+                var h = Math.floor(offset / 60);
+                var m = Math.floor(offset - h*60);
+                offset = 'UTC' + (h >= 0 ? '+' : '') + h
+                    + (m > 0 ? ':' + m : '');
+            }
             if (argv.verbose) {
                 console.log([
-                    offsets[name],
+                    offset,
                     row.name,
                     row.adminCode,
                     row.country
                 ].join('\t'));
             }
-            else console.log(offsets[name]);
+            else console.log(offset);
         });
     });
     return;

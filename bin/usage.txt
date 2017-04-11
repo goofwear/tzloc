@@ -26,6 +26,8 @@ tzloc offset TZNAME
 
   Print the timezone offset in minutes for TZNAME or the PLACE.
 
+  --utc  Instead of minutes, print UTC with +/- hours:minutes.
+
 tzloc help
 
   Show this message.
